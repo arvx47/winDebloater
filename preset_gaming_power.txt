@@ -1,0 +1,33 @@
+<#third#>
+
+<#windowsapps#>
+
+<#privacy#>
+
+<#security#>
+
+<#service#>
+
+<#windowstweaks#>
+
+<#ui#>
+
+<#explorer#>
+
+<#application#>
+
+<#qol#>
+
+<#gamingtweaks#>
+	"DisableCoreParking",
+	"UltimateCleaner"
+<#server#>
+
+<#unpin#>
+
+<#other#>
+
+<#other2#>
+	"EnableUltimatePower"
+
+<#end#>
