@@ -1,0 +1,2231 @@
+{
+	// apps
+	"WPFEssTweaksDeBloat": {
+		"description": "Remove Bloatware",
+		"appx": [
+			"*ACGMediaPlayer*",
+			"*ActiproSoftwareLLC*",
+			"*AdobePhotoshopExpress*",
+			"*AdobeSystemsIncorporated.AdobePhotoshopExpress*",
+			"*BubbleWitch3Saga*",
+			"*CandyCrush*",
+			"*Dolby*",
+			"*Duolingo-LearnLanguagesforFree*",
+			"*EclipseManager*",
+			"*Facebook*",
+			"*Flipboard*",
+			"*HiddenCity*",
+			"*HiddenCityMysteryofShadows*",
+			"*HotspotShieldFreeVPN*",
+			"*Hulu*",
+			"*LinkedInforWindows*",
+			"*Microsoft.Advertising.Xaml*",
+			"*Netflix*",
+			"*OneCalendar*",
+			"*PandoraMediaInc*",
+			"*Royal Revolt*",
+			"*Speed Test*",
+			"*Sway*",
+			"*Twitter*",
+			"*Viber*",
+			"*Wunderlist*",
+			"Microsoft.AppConnector",
+			"Microsoft.BingFinance",
+			"Microsoft.BingFoodAndDrink",
+			"Microsoft.BingHealthAndFitness",
+			"Microsoft.BingNews",
+			"Microsoft.BingSports",
+			"Microsoft.BingTranslator",
+			"Microsoft.BingTravel",
+			"Microsoft.BingWeather",
+			"Microsoft.CommsPhone",
+			"Microsoft.ConnectivityStore",
+			"Microsoft.GamingServices",
+			"Microsoft.GetHelp",
+			"Microsoft.Getstarted",
+			"Microsoft.Getstarted",
+			"Microsoft.Messaging",
+			"Microsoft.Microsoft3DViewer",
+			"Microsoft.Microsoft3DViewer",
+			"Microsoft.MicrosoftOfficeHub",
+			"Microsoft.MicrosoftSolitaireCollection",
+			"Microsoft.MinecraftUWP",
+			"Microsoft.MixedReality.Portal",
+			"Microsoft.NetworkSpeedTest",
+			"Microsoft.News",
+			"Microsoft.Office.Lens",
+			"Microsoft.Office.OneNote",
+			"Microsoft.Office.Sway",
+			"Microsoft.OneConnect",
+			"Microsoft.People",
+			"Microsoft.Print3D",
+			"Microsoft.ScreenSketch",
+			"Microsoft.SkypeApp",
+			"Microsoft.Wallet",
+			"Microsoft.Whiteboard",
+			"Microsoft.WindowsAlarms",
+			"microsoft.windowscommunicationsapps",
+			"Microsoft.WindowsFeedbackHub",
+			"Microsoft.WindowsMaps",
+			"Microsoft.WindowsPhone",
+			"Microsoft.WindowsSoundRecorder",
+			"Microsoft.ZuneMusic",
+			"Microsoft.ZuneVideo"
+		],
+		"script": [
+			"uninstallTeams.ps1"
+		]
+	},
+	"WPFDMDisableXboxfeatures": {
+		"description": "Disable XBOX",
+		"appx": [
+			"Microsoft.Xbox.TCUI",
+			"Microsoft.XboxApp",
+			"Microsoft.XboxGameCallableUI",
+			"Microsoft.XboxGameOverlay",
+			"Microsoft.XboxIdentityProvider",
+			"Microsoft.XboxSpeechToTextOverlay"
+		],
+		"registry": [
+			{
+				"path": "HKCU:\\System\\GameConfigStore",
+				"name": "GameDVR_Enabled",
+				"value": "0",
+				"originalValue": "1",
+				"type": "DWord"
+			},
+			{
+				"path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\GameDVR",
+				"name": "AllowGameDVR",
+				"value": "0",
+				"originalValue": "1",
+				"type": "DWord"
+			}
+		]
+	},
+	"WPFEssTweaksRemoveCortana": {
+		"description": "Remove Cortana",
+		"scriptInline": [
+			"Get-AppxPackage -allusers Microsoft.549981C3F5F10 | Remove-AppxPackage"
+		]
+	},
+	"WPFEssTweaksRemoveEdge": {
+		"description": "Remove Edge",
+		"script": [
+			"removeEdge.ps1"
+		]
+	},
+	// windows tweaks
+	"WPFDMDisablePowerThrottling": {
+		"description": "Disabling Power Throttling",
+		"registry": [
+			{
+				"path": "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Power\\PowerThrottling",
+				"name": "PowerThrottlingOff",
+				"type": "DWord",
+				"value": "00000000",
+				"originalValue": "00000001"
+			}
+		]
+	},
+	"WPFEssTweaksDeleteTempFiles": {
+		"description": "Delete Temporary Files",
+		"script": [
+			"deleteTempFiles.ps1"
+		]
+	},
+	"WPFMiscTweaksDisableTPMCheck": {
+		"description": "Disable TMP Check",
+		"registry": [
+			{
+				"path": "HKLM:\\SYSTEM\\Setup\\MoSetup",
+				"name": "AllowUpgradesWithUnsupportedTPM",
+				"type": "DWord",
+				"value": "1",
+				"originalValue": "0"
+			}
+		]
+	},
+	"WPFEssTweaksDiskCleanup": {
+		"description": "Execute Disk Cleanup",
+		"script": [
+			"diskCleanup.ps1"
+		]
+	},
+	"WPFMiscTweaksDisableMouseAcceleration": {
+		"description": "Disabling Enhance Pointer Precision",
+		"registry": [
+			{
+				"path": "HKCU:\\Control Panel\\Mouse",
+				"originalValue": "1",
+				"name": "MouseSpeed",
+				"value": "0",
+				"type": "String"
+			},
+			{
+				"path": "HKCU:\\Control Panel\\Mouse",
+				"originalValue": "6",
+				"name": "MouseThreshold1",
+				"value": "0",
+				"type": "String"
+			},
+			{
+				"path": "HKCU:\\Control Panel\\Mouse",
+				"originalValue": "10",
+				"name": "MouseThreshold2",
+				"value": "0",
+				"type": "String"
+			}
+		]
+	},
+	// user interface
+	"WPFMiscTweaksExt": {
+		"description": "Hide File Extensions",
+		"registry": [
+			{
+				"path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+				"name": "HideFileExt",
+				"type": "DWord",
+				"value": "0",
+				"originalValue": "1"
+			}
+		]
+	},
+	"WPFUseWindows10ContextMenu": {
+		"description": "Use Windows 10 Context Menu (Windows 11 only)",
+		"script": [
+			"useWindows10Menu.ps1"
+		]
+	},
+	"WPF_DM_MiscTweaksDisplay": {
+		"description": "Use Windows 10 Context Menu (Windows 11 only)",
+		"registry": [
+			{
+				"path": "HKCU:\\Control Panel\\Desktop",
+				"originalValue": "1",
+				"name": "DragFullWindows",
+				"value": "0",
+				"type": "String"
+			},
+			{
+				"path": "HKCU:\\Control Panel\\Desktop",
+				"originalValue": "1",
+				"name": "MenuShowDelay",
+				"value": "0",
+				"type": "String"
+			},
+			{
+				"path": "HKCU:\\Control Panel\\Desktop\\WindowMetrics",
+				"originalValue": "1",
+				"name": "MinAnimate",
+				"value": "0",
+				"type": "String"
+			},
+			{
+				"path": "HKCU:\\Control Panel\\Keyboard",
+				"originalValue": "1",
+				"name": "KeyboardDelay",
+				"value": "0",
+				"type": "DWord"
+			},
+			{
+				"path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+				"originalValue": "1",
+				"name": "ListviewAlphaSelect",
+				"value": "0",
+				"type": "DWord"
+			},
+			{
+				"path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+				"originalValue": "1",
+				"name": "ListviewShadow",
+				"value": "0",
+				"type": "DWord"
+			},
+			{
+				"path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+				"originalValue": "1",
+				"name": "TaskbarAnimations",
+				"value": "0",
+				"type": "DWord"
+			},
+			{
+				"path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\VisualEffects",
+				"originalValue": "1",
+				"name": "VisualFXSetting",
+				"value": "3",
+				"type": "DWord"
+			},
+			{
+				"path": "HKCU:\\Software\\Microsoft\\Windows\\DWM",
+				"originalValue": "1",
+				"name": "EnableAeroPeek",
+				"value": "0",
+				"type": "DWord"
+			},
+			{
+				"path": "HKCU:\\Control Panel\\Desktop",
+				"originalValue": "",
+				"name": "UserPreferencesMask",
+				"value": "([byte[]](144,18,3,128,16,0,0,0))",
+				"type": "Binary"
+			}
+		]
+	},
+	"WPFMiscTweaksDisableActionCenterNotifications": {
+		"registry": [
+			{
+				"path": "HKCU:\\Software\\Policies\\Microsoft\\Windows\\Explorer",
+				"name": "DisableNotificationCenter",
+				"type": "DWord",
+				"value": "1",
+				"originalValue": "0"
+			},
+			{
+				"path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\PushNotifications",
+				"name": "ToastEnabled",
+				"type": "DWord",
+				"value": "0",
+				"originalValue": "1"
+			}
+		]
+	},
+	// services
+	"WPFEssTweaksHiber": {
+		"description": "Enable Hibernation - Do not use on Server with automatically started Hyper-V hvboot service as it may lead to BSODs (Win10 with Hyper-V is fine)",
+		"registry": [
+			{
+				"path": "HKLM:\\System\\CurrentControlSet\\Control\\Session Manager\\Power",
+				"name": "HibernateEnabled",
+				"type": "Dword",
+				"value": "0",
+				"originalValue": "1"
+			},
+			{
+				"path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FlyoutMenuSettings",
+				"name": "ShowHibernateOption",
+				"type": "Dword",
+				"value": "0",
+				"originalValue": "1"
+			}
+		]
+	},
+	"WPFEssTweaksHome": {
+		"description": "Stop and disable Home Groups services - Not applicable to 1803 and newer or Server",
+		"service": [
+			{
+				"name": "HomeGroupListener",
+				"startupType": "Manual",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "HomeGroupProvider",
+				"startupType": "Manual",
+				"originalType": "Automatic"
+			}
+		]
+	},
+	"WPFDMDisableFastStartup": {
+		"description": "Disable Fast Startup",
+		"registry": [
+			{
+				"path": "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Power",
+				"name": "HiberbootEnabled",
+				"type": "DWord",
+				"value": "0000001",
+				"originalValue": "0000000"
+			}
+		]
+	},
+	"WPFMiscTweaksUTC": {
+		"description": "Set BIOS time to UTC",
+		"registry": [
+			{
+				"path": "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\TimeZoneInformation",
+				"name": "RealTimeIsUniversal",
+				"type": "DWord",
+				"value": "1",
+				"originalValue": "0"
+			}
+		]
+	},
+	"WPFDisableStorageSense": {
+		"description": "Disable Storage Sense",
+		"registry": [
+			{
+				"path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\StorageSense\\Parameters\\StoragePolicy",
+				"value": "",
+				"originalValue": ""
+			}
+		]
+	},
+	"WPFDisableNumlock": {
+		"description": "Disable Numlock",
+		"Registry": [
+			{
+				"path": "HKU:\\.DEFAULT\\Control Panel\\Keyboard",
+				"originalValue": "1",
+				"name": "InitialKeyboardIndicators",
+				"value": "80000002",
+				"type": "DWord"
+			}
+		]
+	},
+	"WPFMiscTweaksLapNum": {
+		"description": "Disable Laptop Numeric Keyboard",
+		"Registry": [
+			{
+				"path": "HKU:\\.DEFAULT\\Control Panel\\Keyboard",
+				"originalValue": "1",
+				"name": "InitialKeyboardIndicators",
+				"value": "0",
+				"type": "DWord"
+			}
+		]
+	},
+	"WPFEssTweaksServices": {
+		"description": "Set unnecesary Services to Manual",
+		"service": [
+			{
+				"name": "AJRouter",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "ALG",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "AppIDSvc",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "AppMgmt",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "AppReadiness",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "AppVClient",
+				"originalType": "Disabled"
+			},
+			// askMSWSAPPX (collision)
+			{
+				"name": "AppXSvc",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "Appinfo",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "AssignedAccessManagerSvc",
+				"originalType": "Manual"
+			},
+			{
+				"name": "AudioEndpointBuilder",
+				"startupType": "Automatic",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "AudioSrv",
+				"startupType": "Automatic"
+			},
+			{
+				"name": "Audiosrv",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "AxInstSV",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "BDESVC",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "BFE",
+				"startupType": "Automatic",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "BITS",
+				"startupType": "AutomaticDelayedStart",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "BTAGService",
+				"originalType": "Manual"
+			},
+			{
+				"name": "BcastDVRUserService_dc2a4",
+				"originalType": "Manual"
+			},
+			{
+				"name": "BluetoothUserService_dc2a4",
+				"originalType": "Manual"
+			},
+			{
+				"name": "BrokerInfrastructure",
+				"startupType": "Automatic",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "Browser",
+				"startupType": "Manual"
+			},
+			{
+				"name": "BthAvctpSvc",
+				"originalType": "Manual"
+			},
+			{
+				"name": "BthHFSrv",
+				"startupType": "Manual"
+			},
+			{
+				"name": "CDPSvc",
+				"startupType": "Manual",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "CDPUserSvc_dc2a4",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "COMSysApp",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "CaptureService_dc2a4",
+				"originalType": "Manual"
+			},
+			{
+				"name": "CertPropSvc",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "ClipSVC",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "ConsentUxUserSvc_dc2a4",
+				"originalType": "Manual"
+			},
+			{
+				"name": "CoreMessagingRegistrar",
+				"startupType": "Automatic",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "CredentialEnrollmentManagerUserSvc_dc2a4",
+				"originalType": "Manual"
+			},
+			{
+				"name": "CryptSvc",
+				"startupType": "Automatic",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "CscService",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "DPS",
+				"startupType": "Automatic",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "DcomLaunch",
+				"startupType": "Automatic",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "DcpSvc",
+				"startupType": "Manual"
+			},
+			{
+				"name": "DevQueryBroker",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "DeviceAssociationBrokerSvc_dc2a4",
+				"originalType": "Manual"
+			},
+			{
+				"name": "DeviceAssociationService",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "DeviceInstall",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "DevicePickerUserSvc_dc2a4",
+				"originalType": "Manual"
+			},
+			{
+				"name": "DevicesFlowUserSvc_dc2a4",
+				"originalType": "Manual"
+			},
+			{
+				"name": "Dhcp",
+				"startupType": "Automatic",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "DiagTrack",
+				"startupType": "Disabled",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "DialogBlockingService",
+				"originalType": "Disabled"
+			},
+			{
+				"name": "DispBrokerDesktopSvc",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "DisplayEnhancementService",
+				"originalType": "Manual"
+			},
+			{
+				"name": "DmEnrollmentSvc",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "Dnscache",
+				"startupType": "Automatic",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "DoSvc",
+				"startupType": "AutomaticDelayedStart",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "DsSvc",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "DsmSvc",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "DusmSvc",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "EFS",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "EapHost",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "EntAppSvc",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "EventLog",
+				"startupType": "Automatic",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "EventSystem",
+				"startupType": "Automatic",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "FDResPub",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "Fax",
+				"startupType": "Manual"
+			},
+			{
+				"name": "FontCache",
+				"startupType": "Automatic",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "FrameServer",
+				"originalType": "Manual"
+			},
+			{
+				"name": "FrameServerMonitor",
+				"originalType": "Manual"
+			},
+			{
+				"name": "GraphicsPerfSvc",
+				"originalType": "Manual"
+			},
+			{
+				"name": "HomeGroupListener",
+				"startupType": "Manual"
+			},
+			{
+				"name": "HomeGroupProvider",
+				"startupType": "Manual"
+			},
+			{
+				"name": "HvHost",
+				"originalType": "Manual"
+			},
+			{
+				"name": "IEEtwCollectorService",
+				"startupType": "Manual"
+			},
+			{
+				"name": "IKEEXT",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "InstallService",
+				"originalType": "Manual"
+			},
+			{
+				"name": "InventorySvc",
+				"originalType": "Manual"
+			},
+			{
+				"name": "IpxlatCfgSvc",
+				"originalType": "Manual"
+			},
+			{
+				"name": "KeyIso",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "KtmRm",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "LSM",
+				"startupType": "Automatic",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "LanmanServer",
+				"startupType": "Automatic",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "LanmanWorkstation",
+				"startupType": "Automatic",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "LicenseManager",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "LxpSvc",
+				"originalType": "Manual"
+			},
+			{
+				"name": "MSDTC",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "MSiSCSI",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "MapsBroker",
+				"startupType": "AutomaticDelayedStart",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "McpManagementService",
+				"originalType": "Manual"
+			},
+			{
+				"name": "MessagingService_dc2a4",
+				"originalType": "Manual"
+			},
+			{
+				"name": "MicrosoftEdgeElevationService",
+				"originalType": "Manual"
+			},
+			{
+				"name": "MixedRealityOpenXRSvc",
+				"originalType": "Manual"
+			},
+			{
+				"name": "MpsSvc",
+				"startupType": "Automatic"
+			},
+			{
+				"name": "MsKeyboardFilter",
+				"originalType": "Disabled"
+			},
+			{
+				"name": "NPSMSvc_dc2a4",
+				"originalType": "Manual"
+			},
+			{
+				"name": "NaturalAuthentication",
+				"originalType": "Manual"
+			},
+			{
+				"name": "NcaSvc",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "NcbService",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "NcdAutoSetup",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "NetSetupSvc",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "NetTcpPortSharing",
+				"startupType": "Disabled",
+				"originalType": "Disabled"
+			},
+			{
+				"name": "Netlogon",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "Netman",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "NgcCtnrSvc",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "NgcSvc",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "NlaSvc",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "OneSyncSvc_dc2a4",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "P9RdrService_dc2a4",
+				"originalType": "Manual"
+			},
+			{
+				"name": "PNRPAutoReg",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "PNRPsvc",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "PcaSvc",
+				"startupType": "Manual",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "PeerDistSvc",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "PenService_dc2a4",
+				"originalType": "Manual"
+			},
+			{
+				"name": "PerfHost",
+				"originalType": "Manual"
+			},
+			{
+				"name": "PhoneSvc",
+				"originalType": "Manual"
+			},
+			{
+				"name": "PimIndexMaintenanceSvc_dc2a4",
+				"originalType": "Manual"
+			},
+			{
+				"name": "PlugPlay",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "PolicyAgent",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "Power",
+				"startupType": "Automatic",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "PrintNotify",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "PrintWorkflowUserSvc_dc2a4",
+				"originalType": "Manual"
+			},
+			{
+				"name": "ProfSvc",
+				"startupType": "Automatic",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "PushToInstall",
+				"originalType": "Manual"
+			},
+			{
+				"name": "QWAVE",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "RasAuto",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "RasMan",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "RemoteAccess",
+				"startupType": "Disabled",
+				"originalType": "Disabled"
+			},
+			{
+				"name": "RemoteRegistry",
+				"startupType": "Disabled",
+				"originalType": "Disabled"
+			},
+			{
+				"name": "RetailDemo",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "RmSvc",
+				"originalType": "Manual"
+			},
+			{
+				"name": "RpcEptMapper",
+				"startupType": "Automatic",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "RpcLocator",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "RpcSs",
+				"startupType": "Automatic",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "SCPolicySvc",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "SCardSvr",
+				"startupType": "Disabled",
+				"originalType": "Manual"
+			},
+			{
+				"name": "SDRSVC",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "SEMgrSvc",
+				"originalType": "Manual"
+			},
+			{
+				"name": "SENS",
+				"startupType": "Automatic",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "SNMPTRAP",
+				"startupType": "Manual"
+			},
+			{
+				"name": "SNMPTrap",
+				"originalType": "Manual"
+			},
+			{
+				"name": "SSDPSRV",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "SamSs",
+				"startupType": "Automatic",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "ScDeviceEnum",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "Schedule",
+				"startupType": "Automatic",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "SecurityHealthService",
+				"originalType": "Manual"
+			},
+			{
+				"name": "Sense",
+				"originalType": "Manual"
+			},
+			{
+				"name": "SensorDataService",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "SensorService",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "SensrSvc",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "SessionEnv",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "SgrmBroker",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "SharedAccess",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "SharedRealitySvc",
+				"originalType": "Manual"
+			},
+			{
+				"name": "ShellHWDetection",
+				"startupType": "Automatic",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "SmsRouter",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "Spooler",
+				"startupType": "Automatic",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "SstpSvc",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "StateRepository",
+				"startupType": "Manual",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "StiSvc",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "StorSvc",
+				"startupType": "Manual",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "SysMain",
+				"startupType": "Automatic",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "SystemEventsBroker",
+				"startupType": "Automatic",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "TabletInputService",
+				"startupType": "Manual"
+			},
+			{
+				"name": "TapiSrv",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "TermService",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "TextInputManagementService",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "Themes",
+				"startupType": "Automatic",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "TieringEngineService",
+				"originalType": "Manual"
+			},
+			{
+				"name": "TimeBroker",
+				"startupType": "Manual"
+			},
+			{
+				"name": "TimeBrokerSvc",
+				"originalType": "Manual"
+			},
+			{
+				"name": "TokenBroker",
+				"originalType": "Manual"
+			},
+			// DISGaming (collision)
+			{
+				"name": "TrkWks",
+				"startupType": "Automatic",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "TroubleshootingSvc",
+				"originalType": "Manual"
+			},
+			{
+				"name": "TrustedInstaller",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "UI0Detect",
+				"startupType": "Manual"
+			},
+			{
+				"name": "UdkUserSvc_dc2a4",
+				"originalType": "Manual"
+			},
+			{
+				"name": "UevAgentService",
+				"originalType": "Disabled"
+			},
+			// DISGaming (collision)
+			{
+				"name": "UmRdpService",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "UnistoreSvc_dc2a4",
+				"originalType": "Manual"
+			},
+			{
+				"name": "UserDataSvc_dc2a4",
+				"originalType": "Manual"
+			},
+			{
+				"name": "UserManager",
+				"startupType": "Automatic",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "UsoSvc",
+				"startupType": "Manual",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "VGAuthService",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "VMTools",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "VSS",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "VacSvc",
+				"originalType": "Manual"
+			},
+			{
+				"name": "VaultSvc",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "W32Time",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "WEPHOSTSVC",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "WFDSConMgrSvc",
+				"originalType": "Manual"
+			},
+			{
+				"name": "WMPNetworkSvc",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "WManSvc",
+				"originalType": "Manual"
+			},
+			{
+				"name": "WPDBusEnum",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "WSService",
+				"startupType": "Manual"
+			},
+			// DisableIndexing (collision)
+			{
+				"name": "WSearch",
+				"startupType": "AutomaticDelayedStart",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "WaaSMedicSvc",
+				"originalType": "Manual"
+			},
+			{
+				"name": "WalletService",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "WarpJITSvc",
+				"originalType": "Manual"
+			},
+			{
+				"name": "WbioSrvc",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "Wcmsvc",
+				"startupType": "Automatic",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "WcsPlugInService",
+				"startupType": "Manual"
+			},
+			{
+				"name": "WdNisSvc",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "WdiServiceHost",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "WdiSystemHost",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "WebClient",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "Wecsvc",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "WerSvc",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "WiaRpc",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "WinDefend",
+				"startupType": "Automatic",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "WinHttpAutoProxySvc",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "WinRM",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "Winmgmt",
+				"startupType": "Automatic",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "WlanSvc",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "WpcMonSvc",
+				"originalType": "Manual"
+			},
+			{
+				"name": "WpnService",
+				"startupType": "Manual",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "WpnUserService_dc2a4",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "WwanSvc",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "XblAuthManager",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "XblGameSave",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "XboxGipSvc",
+				"originalType": "Manual"
+			},
+			{
+				"name": "XboxNetApiSvc",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "autotimesvc",
+				"originalType": "Manual"
+			},
+			{
+				"name": "bthserv",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "camsvc",
+				"originalType": "Manual"
+			},
+			{
+				"name": "cbdhsvc_dc2a4",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "cloudidsvc",
+				"originalType": "Manual"
+			},
+			{
+				"name": "dcsvc",
+				"originalType": "Manual"
+			},
+			{
+				"name": "defragsvc",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "diagnosticshub.standardcollector.service",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "diagsvc",
+				"originalType": "Manual"
+			},
+			{
+				"name": "dmwappushservice",
+				"startupType": "Disabled",
+				"originalType": "Manual"
+			},
+			{
+				"name": "dot3svc",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "edgeupdate",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "edgeupdatem",
+				"originalType": "Manual"
+			},
+			{
+				"name": "embeddedmode",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "fdPHost",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "fhsvc",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "gpsvc",
+				"startupType": "Automatic",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "hidserv",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "icssvc",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "iphlpsvc",
+				"startupType": "Automatic",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "lfsvc",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "lltdsvc",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "lmhosts",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "mpssvc",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "msiserver",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "netprofm",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "nsi",
+				"startupType": "Automatic",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "p2pimsvc",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "p2psvc",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "perceptionsimulation",
+				"originalType": "Manual"
+			},
+			{
+				"name": "pla",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "seclogon",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "shpamsvc",
+				"originalType": "Disabled"
+			},
+			{
+				"name": "smphost",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "spectrum",
+				"originalType": "Manual"
+			},
+			// askMSPPS (collision)
+			{
+				"name": "sppsvc",
+				"startupType": "AutomaticDelayedStart",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "ssh-agent",
+				"originalType": "Disabled"
+			},
+			{
+				"name": "svsvc",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "swprv",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "tiledatamodelsvc",
+				"startupType": "Automatic"
+			},
+			{
+				"name": "tzautoupdate",
+				"originalType": "Disabled"
+			},
+			{
+				"name": "uhssvc",
+				"originalType": "Disabled"
+			},
+			{
+				"name": "upnphost",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "vds",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "vm3dservice",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "vmicguestinterface",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "vmicheartbeat",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "vmickvpexchange",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "vmicrdv",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "vmicshutdown",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "vmictimesync",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "vmicvmsession",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "vmicvss",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "vmvss",
+				"originalType": "Manual"
+			},
+			{
+				"name": "wbengine",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "wcncsvc",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "webthreatdefsvc",
+				"originalType": "Manual"
+			},
+			{
+				"name": "webthreatdefusersvc_dc2a4",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "wercplsupport",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			// DISGaming (collision)
+			{
+				"name": "wisvc",
+				"originalType": "Manual"
+			},
+			{
+				"name": "wlidsvc",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "wlpasvc",
+				"originalType": "Manual"
+			},
+			{
+				"name": "wmiApSrv",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "workfolderssvc",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "wscsvc",
+				"startupType": "AutomaticDelayedStart",
+				"originalType": "Automatic"
+			},
+			{
+				"name": "wuauserv",
+				"startupType": "Manual",
+				"originalType": "Manual"
+			},
+			{
+				"name": "wudfsvc",
+				"startupType": "Manual"
+			}
+		]
+	},
+	// security
+	"WPFMiscTweaksDisableUAC": {
+		"description": "Lower UAC level (disabling it completely would break apps)",
+		"registry": [
+			{
+				"path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System",
+				"originalValue": "5",
+				"name": "ConsentPromptBehaviorAdmin",
+				"value": "0",
+				"type": "DWord"
+			},
+			{
+				"path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System",
+				"originalValue": "1",
+				"name": "PromptOnSecureDesktop",
+				"value": "0",
+				"type": "DWord"
+			}
+		]
+	},
+	// privacy 
+	"WPFEssTweaksAH": {
+		"description": "Disable Activity History feed in Task View - Note: The checkbox \"Let Windows collect my activities from this PC\" remains checked even when the function is disabled",
+		"registry": [
+			{
+				"path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\System",
+				"name": "EnableActivityFeed",
+				"type": "DWord",
+				"value": "0",
+				"originalValue": "1"
+			},
+			{
+				"path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\System",
+				"name": "PublishUserActivities",
+				"type": "DWord",
+				"value": "0",
+				"originalValue": "1"
+			},
+			{
+				"path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\System",
+				"name": "UploadUserActivities",
+				"type": "DWord",
+				"value": "0",
+				"originalValue": "1"
+			}
+		]
+	},
+	"WPFEssTweaksLoc": {
+		"description": "Disable Location Tracking",
+		"registry": [
+			{
+				"path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\location",
+				"name": "Value",
+				"type": "String",
+				"value": "Deny",
+				"originalValue": "Allow"
+			},
+			{
+				"path": "HKLM:\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Sensor\\Overrides\\{BFA794E4-F964-4FDB-90F6-51056BFE4B44}",
+				"name": "SensorPermissionState",
+				"type": "Dword",
+				"value": "0",
+				"originalValue": "1"
+			},
+			{
+				"path": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\lfsvc\\Service\\Configuration",
+				"name": "Status",
+				"type": "Dword",
+				"value": "0",
+				"originalValue": "1"
+			},
+			{
+				"path": "HKLM:\\SYSTEM\\Maps",
+				"name": "AutoUpdateEnabled",
+				"type": "Dword",
+				"value": "0",
+				"originalValue": "1"
+			}
+		]
+	},
+	"WPFEssTweaksWifi": {
+		"description": "Disable Wi-Fi Sense",
+		"registry": [
+			{
+				"path": "HKLM:\\Software\\Microsoft\\PolicyManager\\default\\WiFi\\AllowWiFiHotSpotReporting",
+				"name": "Value",
+				"type": "DWord",
+				"value": "0",
+				"originalValue": "1"
+			},
+			{
+				"path": "HKLM:\\Software\\Microsoft\\PolicyManager\\default\\WiFi\\AllowAutoConnectToWiFiSenseHotspots",
+				"name": "Value",
+				"type": "DWord",
+				"value": "0",
+				"originalValue": "1"
+			}
+		]
+	},
+	"WPFBingSearch": {
+		"comments": "Disable Web Search",
+		"registry": [
+			{
+				"originalValue": "1",
+				"name": "BingSearchEnabled",
+				"path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Search",
+				"type": "DWORD",
+				"value": "0"
+			},
+			// DisableWebSearch
+			{
+				"originalValue": "1",
+				"name": "CortanaConsent",
+				"path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Search",
+				"type": "DWORD",
+				"value": "0"
+			},
+			// DisableWebSearch
+			{
+				"originalValue": "1",
+				"name": "DisableWebSearch",
+				"path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
+				"type": "DWORD",
+				"value": "1"
+			}
+		]
+	},
+	"WPFEssTweaksTele": {
+		"comments": "Disable Windows Telemetry and related Services",
+		"scheduledTask": [
+			// DisableTelemetry
+			{
+				"name": "Microsoft\\Windows\\Application Experience\\Microsoft Compatibility Appraiser",
+				"state": "Disabled",
+				"originalState": "Enabled"
+			},
+			// DisableTelemetry
+			{
+				"name": "Microsoft\\Windows\\Application Experience\\ProgramDataUpdater",
+				"state": "Disabled",
+				"originalState": "Enabled"
+			},
+			// DisableTelemetry
+			{
+				"name": "Microsoft\\Windows\\Autochk\\Proxy",
+				"state": "Disabled",
+				"originalState": "Enabled"
+			},
+			// DisableTelemetry
+			{
+				"name": "Microsoft\\Windows\\Customer Experience Improvement Program\\Consolidator",
+				"state": "Disabled",
+				"originalState": "Enabled"
+			},
+			// DisableTelemetry
+			{
+				"name": "Microsoft\\Windows\\Customer Experience Improvement Program\\UsbCeip",
+				"state": "Disabled",
+				"originalState": "Enabled"
+			},
+			// DisableTelemetry
+			{
+				"name": "Microsoft\\Windows\\DiskDiagnostic\\Microsoft-Windows-DiskDiagnosticDataCollector",
+				"state": "Disabled",
+				"originalState": "Enabled"
+			},
+			// DisableFeedback
+			{
+				"name": "Microsoft\\Windows\\Feedback\\Siuf\\DmClient",
+				"state": "Disabled",
+				"originalState": "Enabled"
+			},
+			// DisableFeedback
+			{
+				"name": "Microsoft\\Windows\\Feedback\\Siuf\\DmClientOnScenarioDownload",
+				"state": "Disabled",
+				"originalState": "Enabled"
+			},
+			// DisableErrorReporting
+			{
+				"name": "Microsoft\\Windows\\Windows Error Reporting\\QueueReporting",
+				"state": "Disabled",
+				"originalState": "Enabled"
+			}
+		],
+		"registry": [
+			// DisableTelemetry
+			{
+				"path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\DataCollection",
+				"type": "Dword",
+				"value": 0,
+				"name": "AllowTelemetry",
+				"originalValue": "1"
+			},
+			// DisableTelemetry
+			{
+				"path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection",
+				"originalValue": "1",
+				"name": "AllowTelemetry",
+				"value": 0,
+				"type": "Dword"
+			},
+			// DisableAppSuggestions
+			{
+				"path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
+				"originalValue": "1",
+				"name": "ContentDeliveryAllowed",
+				"value": 0,
+				"type": "Dword"
+			},
+			// DisableAppSuggestions
+			{
+				"path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
+				"originalValue": "1",
+				"name": "OemPreInstalledAppsEnabled",
+				"value": 0,
+				"type": "Dword"
+			},
+			// DisableAppSuggestions
+			{
+				"path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
+				"originalValue": "1",
+				"name": "PreInstalledAppsEnabled",
+				"value": 0,
+				"type": "Dword"
+			},
+			// DisableAppSuggestions
+			{
+				"path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
+				"originalValue": "1",
+				"name": "PreInstalledAppsEverEnabled",
+				"value": 0,
+				"type": "Dword"
+			},
+			// DisableAppSuggestions
+			{
+				"path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
+				"originalValue": "1",
+				"name": "SilentInstalledAppsEnabled",
+				"value": 0,
+				"type": "Dword"
+			},
+			// DisableAppSuggestions
+			{
+				"path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
+				"originalValue": "1",
+				"name": "SubscribedContent-338387Enabled",
+				"value": 0,
+				"type": "Dword"
+			},
+			// DisableAppSuggestions
+			{
+				"path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
+				"originalValue": "1",
+				"name": "SubscribedContent-338388Enabled",
+				"value": 0,
+				"type": "Dword"
+			},
+			// DisableAppSuggestions
+			{
+				"path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
+				"originalValue": "1",
+				"name": "SubscribedContent-338389Enabled",
+				"value": 0,
+				"type": "Dword"
+			},
+			// DisableAppSuggestions
+			{
+				"path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
+				"originalValue": "1",
+				"name": "SubscribedContent-353698Enabled",
+				"value": 0,
+				"type": "Dword"
+			},
+			// DisableAppSuggestions
+			{
+				"path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
+				"originalValue": "1",
+				"name": "SystemPaneSuggestionsEnabled",
+				"value": 0,
+				"type": "Dword"
+			},
+			// DisableAppSuggestions
+			{
+				"path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent",
+				"originalValue": "0",
+				"name": "DisableWindowsConsumerFeatures",
+				"value": 1,
+				"type": "Dword"
+			},
+			// DisableFeedback
+			{
+				"path": "HKCU:\\SOFTWARE\\Microsoft\\Siuf\\Rules",
+				"originalValue": "0",
+				"name": "NumberOfSIUFInPeriod",
+				"value": 0,
+				"type": "Dword"
+			},
+			// DisableFeedback
+			{
+				"path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection",
+				"originalValue": "0",
+				"name": "DoNotShowFeedbackNotifications",
+				"value": 1,
+				"type": "Dword"
+			},
+			// DisableTailoredExperiences
+			{
+				"path": "HKCU:\\SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent",
+				"originalValue": "0",
+				"name": "DisableTailoredExperiencesWithDiagnosticData",
+				"value": 1,
+				"type": "Dword"
+			},
+			// DisableAdvertisingID
+			{
+				"path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\AdvertisingInfo",
+				"originalValue": "0",
+				"name": "DisabledByGroupPolicy",
+				"value": 1,
+				"type": "Dword"
+			},
+			// DisableErrorReporting
+			{
+				"path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\Windows Error Reporting",
+				"originalValue": "0",
+				"name": "Disabled",
+				"value": 1,
+				"type": "Dword"
+			},
+			// SetP2PUpdateLocal
+			{
+				"path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\DeliveryOptimization\\Config",
+				"originalValue": "1",
+				"name": "DODownloadMode",
+				"value": 1,
+				"type": "Dword"
+			},
+			// DisableRemoteAssistance
+			{
+				"path": "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Remote Assistance",
+				"originalValue": "1",
+				"name": "fAllowToGetHelp",
+				"value": 0,
+				"type": "Dword"
+			},
+			// DisableRemoteAssistance
+			{
+				"path": "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Remote Assistance",
+				"originalValue": "1",
+				"name": "fAllowFullControl",
+				"value": 0,
+				"type": "Dword"
+			},
+			// ShowFileOperationsDetails
+			{
+				"path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\OperationStatusManager",
+				"originalValue": "0",
+				"name": "EnthusiastMode",
+				"value": 1,
+				"type": "Dword"
+			},
+			// HideTaskView
+			{
+				"path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+				"originalValue": "1",
+				"name": "ShowTaskViewButton",
+				"value": 0,
+				"type": "Dword"
+			},
+			// HideTaskbarPeopleIcon
+			{
+				"path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\People",
+				"originalValue": "1",
+				"name": "PeopleBand",
+				"value": 0,
+				"type": "Dword"
+			},
+			// SetExplorerThisPC (collision)
+			{
+				"path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+				"originalValue": "1",
+				"name": "LaunchTo",
+				"value": 1,
+				"type": "Dword"
+			},
+			{
+				"path": "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\FileSystem",
+				"originalValue": "0",
+				"name": "LongPathsEnabled",
+				"value": 1,
+				"type": "Dword"
+			},
+			{
+				"comment": "Driver searching is a function that should be left in",
+				"path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\DriverSearching",
+				"originalValue": "1",
+				"name": "SearchOrderConfig",
+				"value": "1",
+				"type": "Dword"
+			},
+			// ApplyPCOptimizations
+			{
+				"path": "HKLM:\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile",
+				"originalValue": "1",
+				"name": "SystemResponsiveness",
+				"value": "0",
+				"type": "Dword"
+			},
+			// ApplyPCOptimizations
+			{
+				"path": "HKLM:\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile",
+				"originalValue": "1",
+				"name": "NetworkThrottlingIndex",
+				"value": "4294967295",
+				"type": "Dword"
+			},
+			{
+				"path": "HKCU:\\Control Panel\\Desktop",
+				"originalValue": "1",
+				"name": "AutoEndTasks",
+				"value": "1",
+				"type": "Dword"
+			},
+			{
+				"path": "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Memory Management",
+				"originalValue": "0",
+				"name": "ClearPageFileAtShutdown",
+				"value": "0",
+				"type": "Dword"
+			},
+			{
+				"path": "HKLM:\\SYSTEM\\ControlSet001\\Services\\Ndu",
+				"originalValue": "1",
+				"name": "Start",
+				"value": "4",
+				"type": "Dword"
+			},
+			// NetworkOptimizations (collision)
+			{
+				"path": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\LanmanServer\\Parameters",
+				"originalValue": "20",
+				"name": "IRPStackSize",
+				"value": "30",
+				"type": "Dword"
+			},
+			// DisableNewsFeed
+			{
+				"path": "HKCU:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Feeds",
+				"originalValue": "1",
+				"name": "EnableFeeds",
+				"value": "0",
+				"type": "Dword"
+			},
+			// DisableNewsFeed
+			{
+				"path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Feeds",
+				"originalValue": "1",
+				"name": "ShellFeedsTaskbarViewMode",
+				"value": "2",
+				"type": "Dword"
+			},
+			// RemoveMeet
+			{
+				"path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer",
+				"originalValue": "1",
+				"name": "HideSCAMeetNow",
+				"value": "1",
+				"type": "Dword"
+			},
+			// GameOptimizationFIX (collision)
+			{
+				"path": "HKLM:\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\\Tasks\\Games",
+				"originalValue": "1",
+				"name": "GPU Priority",
+				"value": "8",
+				"type": "Dword"
+			},
+			// GameOptimizationFIX (collision)
+			{
+				"path": "HKLM:\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\\Tasks\\Games",
+				"originalValue": "1",
+				"name": "Priority",
+				"value": "6",
+				"type": "Dword"
+			},
+			// GameOptimizationFIX (collision)
+			{
+				"path": "HKLM:\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\\Tasks\\Games",
+				"originalValue": "High",
+				"name": "Scheduling Category",
+				"value": "High",
+				"type": "String"
+			}
+		],
+		"service": [
+			// DisableDiagTrack
+			{
+				"name": "DiagTrack",
+				"startupType": "Disabled",
+				"originalType": "Automatic"
+			},
+			// DisableWAPPush
+			{
+				"name": "dmwappushservice",
+				"startupType": "Disabled",
+				"originalType": "Manual"
+			},
+			// Description: Stop and disable Windows Search indexing service
+			{
+				"name": "SysMain",
+				"startupType": "Disabled",
+				"originalType": "Manual"
+			}
+		],
+		"script": [
+			"disableTelemtry.ps1"
+		]
+	},
+	"WPFEssTweaksOO": {
+		"comments": "Use OO Shutup",
+		"script": [
+			"useOOShutup.ps1"
+		]
+	}
+}

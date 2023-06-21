@@ -1,0 +1,1694 @@
+{
+	"DM_Disable_Home_Groups_Services": {
+		"description": "Stop and disable Home Groups services - Not applicable to 1803 and newer or Server",
+		"service": [
+			{
+				"Name": "HomeGroupListener",
+				"StartupType": "Disabled",
+				"OriginalType": "Automatic"
+			}
+		]
+	},
+	"DM_Ultimate_Cleaner": {
+		"description": "Clear temporary files",
+		"InvokeScript": [
+			"deleteTempFiles.ps1"
+		]
+	},
+	"DM_Force_RAW_Mouse_Input": {
+		"description": "Force RAW mouse input",
+		"registry": [
+			// RawMouseInput
+			{
+				"path": "HKCU:\\Control Panel\\Mouse",
+				"OriginalValue": "10",
+				"name": "MouseSensitivity",
+				"value": "10",
+				"type": "String"
+			},
+			// RawMouseInput
+			{
+				"path": "HKCU:\\Control Panel\\Mouse",
+				"OriginalValue": "400",
+				"name": "MouseHoverTime",
+				"value": "0",
+				"type": "String"
+			},
+			// RawMouseInput
+			{
+				"path": "HKCU:\\Control Panel\\Mouse",
+				"OriginalValue": "1",
+				"name": "MouseTrails",
+				"value": "0",
+				"type": "String"
+			}
+		]
+	},
+	"WPF_DM_Disable_Fullscreen_Optimizations_Globally": {
+		"registry": [
+			{
+				"Path": "HKCU:\\System\\GameConfigStore",
+				"Name": "GameDVR_FSEBehavior",
+				"Value": "2",
+				"OriginalValue": "1",
+				"Type": "DWord"
+			},
+			{
+				"Path": "HKCU:\\System\\GameConfigStore",
+				"Name": "GameDVR_DXGIHonorFSEWindowsCompatible",
+				"Value": "1",
+				"OriginalValue": "0",
+				"Type": "DWord"
+			},
+			{
+				"Path": "HKCU:\\System\\GameConfigStore",
+				"Name": "GameDVR_HonorUserFSEBehaviorMode",
+				"Value": "1",
+				"OriginalValue": "0",
+				"Type": "DWord"
+			},
+			{
+				"Path": "HKCU:\\System\\GameConfigStore",
+				"Name": "GameDVR_EFSEFeatureFlags",
+				"Value": "0",
+				"OriginalValue": "1",
+				"Type": "DWord"
+			},
+			// FullscreenOptimizationFIX
+			{
+				"Path": "HKCU:\\System\\GameConfigStore",
+				"Name": "GameDVR_FSEBehaviorMode",
+				"Value": "2",
+				"OriginalValue": "0",
+				"Type": "DWord"
+			},
+			// FullscreenOptimizationFIX
+			{
+				"Path": "HKCU:\\System\\GameConfigStore",
+				"Name": "GameDVR_DSEBehavior",
+				"Value": "2",
+				"OriginalValue": "0",
+				"Type": "DWord"
+			},
+			// FullscreenOptimizationFIX
+			{
+				"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\GameDVR",
+				"Name": "AppCaptureEnabled",
+				"Value": "0",
+				"OriginalValue": "1",
+				"Type": "DWord"
+			}
+		]
+	},
+	"DM_FTTRegistryTweaks": {
+		"description": "FTT Registry Tweaks - Improving Windows Update to delay Feature updates and only install Security Updates",
+		"registry": [
+			{
+				"path": "HKLM:\\SOFTWARE\\Microsoft\\WindowsUpdate\\UX\\Settings",
+				"OriginalValue": "",
+				"name": "BranchReadinessLevel",
+				"type": "DWord",
+				"value": "20"
+			},
+			{
+				"path": "HKLM:\\SOFTWARE\\Microsoft\\WindowsUpdate\\UX\\Settings",
+				"OriginalValue": "",
+				"name": "DeferFeatureUpdatesPeriodInDays",
+				"type": "DWord",
+				"value": "365"
+			},
+			{
+				"path": "HKLM:\\SOFTWARE\\Microsoft\\WindowsUpdate\\UX\\Settings",
+				"OriginalValue": "",
+				"name": "DeferQualityUpdatesPeriodInDays",
+				"type": "DWord",
+				"value": "4"
+			},
+			{
+				"path": "HKLM:\\SOFTWARE\\Microsoft\\WindowsUpdate\\UX\\Settings",
+				"OriginalValue": "",
+				"name": "ActiveHoursEnd",
+				"type": "DWord",
+				"value": "2"
+			},
+			{
+				"path": "HKLM:\\SOFTWARE\\Microsoft\\WindowsUpdate\\UX\\Settings",
+				"OriginalValue": "",
+				"name": "ActiveHoursStart",
+				"type": "DWord",
+				"value": "8"
+			}
+		]
+	},
+	"DM_DisableSmartScreen": {
+		"description": "Disabling SmartScreen Filter",
+		"registry": [
+			{
+				"path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\System",
+				"name": "EnableSmartScreen",
+				"type": "DWord",
+				"value": "0",
+				"originalValue": "",
+				"originalRemove": true
+			},
+			{
+				"path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\MicrosoftEdge\\PhishingFilter",
+				"name": "EnabledV9",
+				"type": "DWord",
+				"value": "0",
+				"originalValue": "",
+				"originalRemove": true
+			}
+		]
+	},
+	"DisableBackgroundApps": {
+		"description": "Disabling Background application access",
+		"invokeScript": [
+			"disableBackgroundApps.ps1"
+		],
+		"invokeScriptUndo": [
+			"disableBackgroundAppsUndo.ps1"
+		]
+	},
+	"DisableSharingMappedDrives": {
+		"description": "Disabling SmartScreen Filter",
+		"registry": [
+			{
+				"path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System",
+				"name": "EnableLinkedConnections",
+				"type": "DWord",
+				"value": "1",
+				"originalValue": "",
+				"originalRemove": true
+			}
+		]
+	},
+	"DisableAdminShares": {
+		"description": "Disabling implicit administrative shares",
+		"registry": [
+			{
+				"path": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\LanmanServer\\Parameters",
+				"name": "EnableLinkedConnections",
+				"type": "DWord",
+				"value": "0",
+				"originalValue": "",
+				"originalRemove": true
+			}
+		]
+	},
+	"DisableSMB1": {
+		"description": "Disabling SMB 1.0 protocol",
+		"inlineInvokeScript": "Set-SmbServerConfiguration -EnableSMB1Protocol $false -Force",
+		"inlineInvokeScriptUndo": "Set-SmbServerConfiguration -EnableSMB1Protocol $true -Force"
+	},
+	"DisableSMBServer": {
+		"description": "Disabling SMB Server",
+		"inlineInvokeScript": "Set-SmbServerConfiguration -EnableSMB1Protocol $false -Force;Set-SmbServerConfiguration -EnableSMB2Protocol $false -Force",
+		"inlineInvokeScriptUndo": "Set-SmbServerConfiguration -EnableSMB2Protocol $true -Force"
+	},
+	"DisableLLMNR": {
+		"description": "Disable Link-Local Multicast Name Resolution (LLMNR) protocol",
+		"registry": [
+			{
+				"path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows NT\\DNSClient",
+				"name": "EnableMulticast",
+				"type": "DWord",
+				"value": "0",
+				"originalValue": "",
+				"originalRemove": true
+			}
+		]
+	},
+	"setUnknownNetworksPrivate": {
+		"description": "Set unknown networks profile to private (allow file sharing, device discovery, etc.)",
+		"registry": [
+			{
+				"path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows NT\\CurrentVersion\\NetworkList\\Signatures\\010103000F0000F0010000000F0000F0C967A3643C3AD745950DA7859209176EF5B87C875FA20DF21951640E807D7C24",
+				"name": "Category",
+				"type": "DWord",
+				"value": "1",
+				"originalValue": "",
+				"originalRemove": true
+			}
+		]
+	},
+	"DisableNetDevicesAutoInst": {
+		"description": "Disable automatic installation of network devices",
+		"registry": [
+			{
+				"path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\NcdAutoSetup\\Private",
+				"name": "AutoSetup",
+				"type": "DWord",
+				"value": "1",
+				"originalValue": "",
+				"originalRemove": true
+			}
+		]
+	},
+	"EnableCtrldFolderAccess": {
+		"description": "Enable Controlled Folder Access (Defender Exploit Guard feature) - Applicable to 1709 or newer, requires Windows Defender to be enabled",
+		"inlineInvokeScript": "Set-MpPreference -EnableControlledFolderAccess Enabled",
+		"inlineInvokeScriptUndo": "Set-MpPreference -EnableControlledFolderAccess Disabled"
+	},
+	"DisableFirewall": {
+		"description": "Disable Firewall",
+		"registry": [
+			{
+				"path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\StandardProfile",
+				"name": "EnableFirewall",
+				"type": "DWord",
+				"value": "0",
+				"originalValue": "",
+				"originalRemove": true
+			}
+		]
+	},
+	"DisableDefender": {
+		"description": "Disable Defender",
+		"invokeScript": "disableDefender.ps1",
+		"invokeScriptUndo": "enableDefender.ps1"
+	},
+	"DisableDefenderCloud": {
+		"description": "Disable defender cloud",
+		"registry": [
+			{
+				"path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\\Spynet",
+				"name": "SpynetReporting",
+				"type": "DWord",
+				"value": "0",
+				"originalValue": "",
+				"originalRemove": true
+			},
+			{
+				"path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\\Spynet",
+				"name": "SubmitSamplesConsent",
+				"type": "DWord",
+				"value": "2",
+				"originalValue": "",
+				"originalRemove": true
+			}
+		]
+	},
+	"DisableF8BootMenu": {
+		"description": "Enabling F8 boot menu options",
+		"scriptInline": "bcdedit /set `{current`} bootmenupolicy Legacy | Out-Null",
+		"scriptUndoInline": "bcdedit /set `{current`} bootmenupolicy Standard | Out-Null"
+	},
+	"SetDEPOptOut": {
+		"description": "Set Data Execution Prevention (DEP) policy to OptOut",
+		"scriptInline": "bcdedit /set `{current`} nx OptOut | Out-Null",
+		"scriptUndoInline": "bcdedit /set `{current`} nx OptIn | Out-Null"
+	},
+	"EnableCIMemoryIntegrity": {
+		"description": "Enable Core Isolation Memory Integrity - Part of Windows Defender System Guard virtualization-based security - Supported from 1803",
+		"registry": [
+			{
+				"path": "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\DeviceGuard\\Scenarios\\HypervisorEnforcedCodeIntegrity",
+				"name": "Enabled",
+				"type": "DWord",
+				"value": "1",
+				"originalValue": "",
+				"originalRemove": true
+			}
+		]
+	},
+	"DisableScriptHost": {
+		"description": "Disable Windows Script Host (execution of *.vbs scripts and alike)",
+		"registry": [
+			{
+				"path": "HKLM:\\SOFTWARE\\Microsoft\\Windows Script Host\\Settings",
+				"name": "Enabled",
+				"type": "DWord",
+				"value": "0",
+				"originalValue": "",
+				"originalRemove": true
+			}
+		]
+	},
+	"EnableDotNetStrongCrypto": {
+		"description": "Enable strong cryptography for .NET Framework (version 4 and above)",
+		"registry": [
+			{
+				"path": "HKLM:\\SOFTWARE\\Microsoft\\.NETFramework\\v4.0.30319",
+				"name": "SchUseStrongCrypto",
+				"type": "DWord",
+				"value": "1",
+				"originalValue": "",
+				"originalRemove": true
+			},
+			{
+				"path": "HKLM:\\SOFTWARE\\Wow6432Node\\Microsoft\\.NETFramework\\v4.0.30319",
+				"name": "SchUseStrongCrypto",
+				"type": "DWord",
+				"value": "1",
+				"originalValue": "",
+				"originalRemove": true
+			}
+		]
+	},
+	"EnableMeltdownCompatFlag": {
+		"description": "Enable Meltdown (CVE-2017-5754) compatibility flag - Required for January 2018 and all subsequent Windows updates",
+		"registry": [
+			{
+				"path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\QualityCompat",
+				"name": "cadca5fe-87d3-4b96-b7fb-a231484277cc",
+				"type": "DWord",
+				"value": "0",
+				"originalValue": "",
+				"originalRemove": true
+			}
+		]
+	},
+	"DisableUpdateMSRT": {
+		"description": "Disable offering of Malicious Software Removal Tool through Windows Update",
+		"registry": [
+			{
+				"path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\MRT",
+				"name": "DontOfferThroughWUAU",
+				"type": "DWord",
+				"value": "1",
+				"originalValue": "",
+				"originalRemove": true
+			}
+		]
+	},
+	"DisableUpdateDriver": {
+		"description": "Disabling driver offering through Windows Update",
+		"registry": [
+			{
+				"path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\DriverSearching",
+				"name": "DontPromptForWindowsUpdate",
+				"type": "DWord",
+				"value": "1",
+				"originalValue": "",
+				"originalRemove": true
+			},
+			{
+				"path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\DriverSearching",
+				"name": "DontSearchWindowsUpdate",
+				"type": "DWord",
+				"value": "1",
+				"originalValue": "",
+				"originalRemove": true
+			},
+			{
+				"path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\DriverSearching",
+				"name": "DriverUpdateWizardWuSearchEnabled",
+				"type": "DWord",
+				"value": "0",
+				"originalValue": "",
+				"originalRemove": true
+			},
+			{
+				"path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate",
+				"name": "ExcludeWUDriversInQualityUpdate",
+				"type": "DWord",
+				"value": "1",
+				"originalValue": "",
+				"originalRemove": true
+			}
+		]
+	},
+	"DisableUpdateRestart": {
+		"description": "Disabling Windows Update automatic restart",
+		"registry": [
+			{
+				"path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate\\AU",
+				"name": "NoAutoRebootWithLoggedOnUsers",
+				"type": "DWord",
+				"value": "1",
+				"originalRemove": true
+			},
+			{
+				"path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate\\AU",
+				"name": "AUPowerManagement",
+				"type": "DWord",
+				"value": "0",
+				"originalRemove": true
+			}
+		]
+	},
+	"DisableSharedExperiences": {
+		"description": "Disable Shared Experiences - Not applicable to Server",
+		"registry": [
+			{
+				"path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\System",
+				"name": "EnableCdp",
+				"type": "DWord",
+				"value": "0",
+				"originalRemove": true
+			},
+			{
+				"path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\System",
+				"name": "EnableMmx",
+				"type": "DWord",
+				"value": "0",
+				"originalRemove": true
+			}
+		]
+	},
+	"EnableRemoteDesktop": {
+		"description": "Enabling Remote Desktop w/o Network Level Authentication",
+		"registry": [
+			{
+				"path": "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Terminal Server",
+				"name": "fDenyTSConnections",
+				"type": "DWord",
+				"value": "0",
+				"originalValue": "1"
+			},
+			{
+				"path": "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Terminal Server\\WinStations\\RDP-Tcp",
+				"name": "UserAuthentication",
+				"type": "DWord",
+				"value": "0",
+				"originalValue": "1"
+			}
+		],
+		"inlineScript": "Enable-NetFirewallRule -Name \"RemoteDesktop*\"",
+		"inlineScriptUndo": "Disable-NetFirewallRule -Name \"RemoteDesktop*\""
+	},
+	"DisableAutoplay": {
+		"description": "Disabling Autoplay",
+		"registry": [
+			{
+				"path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\AutoplayHandlers",
+				"name": "DisableAutoplay",
+				"type": "DWord",
+				"value": "1",
+				"originalValue": "0"
+			}
+		]
+	},
+	"DisableAutorun": {
+		"description": "Disabling Autorun for all drives",
+		"registry": [
+			{
+				"path": "HKLM:SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer",
+				"name": "NoDriveTypeAutoRun",
+				"type": "DWord",
+				"value": "255",
+				"originalRemove": true
+			}
+		]
+	},
+	"SetExplorerThisPC": {
+		"description": "Changing default Explorer view to This PC",
+		"registry": [
+			{
+				"path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+				"name": "LaunchTo",
+				"type": "DWord",
+				"value": "1",
+				"originalRemove": true
+			}
+		]
+	},
+	"DisableDefragmentation": {
+		"description": "Disabling scheduled defragmentation",
+		"inlineScript": "Disable-ScheduledTask -TaskName \"Microsoft\\Windows\\Defrag\\ScheduledDefrag\" | Out-Null",
+		"inlineScriptUndo": "Enable-ScheduledTask -TaskName \"Microsoft\\Windows\\Defrag\\ScheduledDefrag\" | Out-Null"
+	},
+	"DisableIndexing": {
+		"description": "Stop and disable Windows Search indexing service",
+		"service": [
+			{
+				"Name": "WSearch",
+				"StartupType": "Disabled",
+				"OriginalType": "Automatic"
+			}
+		]
+	},
+	"DisableSleepButton": {
+		"description": "Disabling Sleep start menu and keyboard button",
+		"registry": [
+			{
+				"path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FlyoutMenuSettings",
+				"name": "ShowSleepOption",
+				"type": "DWord",
+				"value": "0",
+				"originalValue": "1",
+				"originalRemove": true
+			}
+		],
+		"inlineScript": "powercfg /SETACVALUEINDEX SCHEME_CURRENT SUB_BUTTONS SBUTTONACTION 0; powercfg /SETDCVALUEINDEX SCHEME_CURRENT SUB_BUTTONS SBUTTONACTION 0",
+		"inlineScriptUndo": "powercfg /SETACVALUEINDEX SCHEME_CURRENT SUB_BUTTONS SBUTTONACTION 1; powercfg /SETDCVALUEINDEX SCHEME_CURRENT SUB_BUTTONS SBUTTONACTION 1"
+	},
+	"DisableSleepTimeout": {
+		"description": "Disabling display and sleep mode timeouts",
+		"script": "disableSleepTimeout.ps1",
+		"scriptUndo": "enableSleepTimeout.ps1"
+	},
+	"DisableLockScreen": {
+		"description": "Disable Lock screen",
+		"registry": [
+			{
+				"path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Personalization",
+				"name": "NoLockScreen",
+				"type": "DWord",
+				"value": "1",
+				"originalRemove": true
+			}
+		]
+	},
+	"DisableLockScreenRS1": {
+		"description": "Disable Lock screen (Anniversary Update workaround) - Applicable to 1607 - 1803 (The GPO used in DisableLockScreen has been fixed again in 1803)",
+		"script": "DisableLockScreenRS1.ps1",
+		"scriptUndo": "DisableLockScreenRS1Undo.ps1"
+	},
+	"HideNetworkFromLockScreen": {
+		"description": "Hide network options from Lock Screen",
+		"registry": [
+			{
+				"path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\System",
+				"name": "DontDisplayNetworkSelectionUI",
+				"type": "DWord",
+				"value": 1,
+				"originalRemove": true
+			}
+		]
+	},
+	"HideShutdownFromLockScreen": {
+		"description": "Hiding shutdown options from Lock Screen",
+		"registry": [
+			{
+				"path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System",
+				"name": "ShutdownWithoutLogon",
+				"type": "DWord",
+				"value": "0",
+				"originalValue": "1"
+			}
+		]
+	},
+	"DisableStickyKeys": {
+		"description": "Disable Sticky keys prompt",
+		"registry": [
+			{
+				"path": "HKCU:\\Control Panel\\Accessibility\\StickyKeys",
+				"name": "Flags",
+				"type": "DWord",
+				"value": "506",
+				"originalValue": "510"
+			}
+		]
+	},
+	"ShowTaskManagerDetails": {
+		"description": "Disable Sticky keys prompt",
+		"script": "showTaskManagerDetails.ps1",
+		"scriptUndo": "showTaskManagerDetailsUndo.ps1"
+	},
+	"EnableFileDeleteConfirm": {
+		"description": "Enable file delete confirmation dialog",
+		"registry": [
+			{
+				"path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer",
+				"name": "ConfirmFileDelete",
+				"type": "DWord",
+				"value": "1",
+				"originalValue": ""
+			}
+		]
+	},
+	"SetTaskbarSearchVisiblity": {
+		"description": "Set taskbar search visbility",
+		"options": {
+			"HideTaskbarSearch": {
+				"description": "Hide Taskbar Search icon / box",
+				"registry": [
+					{
+						"path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Search",
+						"name": "SearchboxTaskbarMode",
+						"type": "DWord",
+						"value": "0"
+					}
+				]
+			},
+			"ShowTaskbarSearchIcon": {
+				"description": "Show Taskbar Search icon",
+				"registry": [
+					{
+						"path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Search",
+						"name": "SearchboxTaskbarMode",
+						"type": "DWord",
+						"value": "1"
+					}
+				]
+			},
+			"ShowTaskbarSearchBox": {
+				"description": "Show Taskbar Search box",
+				"registry": [
+					{
+						"path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Search",
+						"name": "SearchboxTaskbarMode",
+						"type": "DWord",
+						"value": "2"
+					}
+				]
+			}
+		}
+	},
+	"SetTaskbarIconsSize": {
+		"description": "Set Taskbar icons size",
+		"options": {
+			"ShowSmallTaskbarIcons": {
+				"description": "Showing small icons in taskbar",
+				"registry": [
+					{
+						"path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+						"name": "TaskbarSmallIcons",
+						"type": "DWord",
+						"value": "1"
+					}
+				]
+			},
+			"ShowLargeTaskbarIcons": {
+				"description": "Show large icons in taskbar",
+				"registry": [
+					{
+						"path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+						"name": "TaskbarSmallIcons",
+						"type": "DWord",
+						"value": ""
+					}
+				]
+			}
+		}
+	},
+	"SetTaskbarCombine": {
+		"description": "Set taskbar buttons to show labels or combine",
+		"options": {
+			"SetTaskbarCombineFull": {
+				"description": "Set taskbar buttons to show labels and combine when taskbar is full",
+				"registry": [
+					{
+						"path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+						"name": "TaskbarGlomLevel",
+						"type": "DWord",
+						"value": "1"
+					}
+				]
+			},
+			"SetTaskbarCombineNever": {
+				"description": "Set taskbar buttons to show labels and never combine",
+				"registry": [
+					{
+						"path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+						"name": "TaskbarGlomLevel",
+						"type": "DWord",
+						"value": "2"
+					}
+				]
+			},
+			"SetTaskbarCombineAlways": {
+				"description": "Set taskbar buttons to always combine and hide labels",
+				"registry": [
+					{
+						"path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+						"name": "TaskbarGlomLevel",
+						"type": "DWord",
+						"value": ""
+					}
+				]
+			}
+		}
+	},
+	"ShowTrayIcons": {
+		"description": "Showing all tray icons",
+		"registry": [
+			{
+				"path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer",
+				"name": "EnableAutoTray",
+				"type": "DWord",
+				"value": "0",
+				"originalValue": ""
+			}
+		]
+	},
+	"DisableSearchAppInStore": {
+		"description": "Disabling search for app in store for unknown extensions",
+		"registry": [
+			{
+				"path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Explorer",
+				"name": "NoUseStoreOpenWith",
+				"type": "DWord",
+				"value": "1",
+				"originalValue": ""
+			}
+		]
+	},
+	"DisableNewAppPrompt": {
+		"description": "Disable 'How do you want to open this file?' prompt",
+		"registry": [
+			{
+				"path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Explorer",
+				"name": "NoNewAppAlert",
+				"type": "DWord",
+				"value": "1",
+				"originalValue": ""
+			}
+		]
+	},
+	"SetControlPanelIconSize": {
+		"description": "Set Control Panel view icons size",
+		"options": {
+			"SetControlPanelSmallIcons": {
+				"description": "Set Control Panel view to Small icons (Classic)",
+				"registry": [
+					{
+						"path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\ControlPanel",
+						"name": "StartupPage",
+						"type": "DWord",
+						"value": "1"
+					},
+					{
+						"path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\ControlPanel",
+						"name": "AllItemsIconView",
+						"type": "DWord",
+						"value": "1"
+					}
+				]
+			},
+			"SetControlPanelLargeIcons": {
+				"description": "Set Control Panel view to Large icons (Classic)",
+				"registry": [
+					{
+						"path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\ControlPanel",
+						"name": "StartupPage",
+						"type": "DWord",
+						"value": "1"
+					},
+					{
+						"path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\ControlPanel",
+						"name": "AllItemsIconView",
+						"type": "DWord",
+						"value": "0"
+					}
+				]
+			},
+			"SetControlPanelCategories": {
+				"description": "Set Control Panel view to categories",
+				"registry": [
+					{
+						"path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\ControlPanel",
+						"name": "StartupPage",
+						"type": "DWord",
+						"value": ""
+					},
+					{
+						"path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\ControlPanel",
+						"name": "AllItemsIconView",
+						"type": "DWord",
+						"value": ""
+					}
+				]
+			}
+		}
+	},
+	"RemoveENKeyboard": {
+		"description": "Add secondary en-US keyboard",
+		"inlineScript": "$langs = Get-WinUserLanguageList; Set-WinUserLanguageList ($langs | ? {$_.LanguageTag -ne \"en-US\"}) -Force",
+		"inlineScriptUndo": "$langs = Get-WinUserLanguageList; $langs.Add(\"en-US\"); Set-WinUserLanguageList $langs -Force"
+	},
+	"HideSyncNotifications": {
+		"description": "Hide sync provider notifications",
+		"registry": [
+			{
+				"path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+				"name": "ShowSyncProviderNotifications",
+				"type": "DWord",
+				"value": "0",
+				"orignalValue": "1"
+			}
+		]
+	},
+	"HideRecentShortcuts": {
+		"description": "Hiding recent shortcuts",
+		"registry": [
+			{
+				"path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer",
+				"name": "ShowRecent",
+				"type": "DWord",
+				"value": "0",
+				"originalValue": ""
+			},
+			{
+				"path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer",
+				"name": "ShowFrequent",
+				"type": "DWord",
+				"value": "0",
+				"originalValue": ""
+			}
+		],
+	},
+	"ShowThisPCOnDesktop": {
+		"description": "Showing This PC shortcut on desktop",
+		"registry": [
+			{
+				"path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\HideDesktopIcons\\ClassicStartMenu",
+				"name": "{20D04FE0-3AEA-1069-A2D8-08002B30309D}",
+				"type": "DWord",
+				"value": "0",
+				"originalValue": ""
+			},
+			{
+				"path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\HideDesktopIcons\\NewStartPanel",
+				"name": "{20D04FE0-3AEA-1069-A2D8-08002B30309D}",
+				"type": "DWord",
+				"value": "0",
+				"originalValue": ""
+			}
+		]
+	},
+	"ShowUserFolderOnDesktop": {
+		"description": "Showing User Folder shortcut on desktop",
+		"registry": [
+			{
+				"path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\HideDesktopIcons\\ClassicStartMenu",
+				"name": "{59031a47-3f72-44a7-89c5-5595fe6b30ee}",
+				"type": "DWord",
+				"value": "0",
+				"originalValue": ""
+			},
+			{
+				"path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\HideDesktopIcons\\NewStartPanel",
+				"name": "{59031a47-3f72-44a7-89c5-5595fe6b30ee}",
+				"type": "DWord",
+				"value": "0",
+				"originalValue": ""
+			}
+		]
+	},
+	"ShowDesktopInThisPC": {
+		"description": "Showing Desktop icon in This PC",
+		"registry": [
+			{
+				"path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{B4BFCC3A-DB2C-424C-B029-7FE99A87C641}",
+				"name": "",
+				"type": "",
+				"value": "",
+				"originalValue": ""
+			}
+		]
+	},
+	"HideDesktopFromExplorer": {
+		"description": "Hide Desktop icon from Explorer namespace - Hides the icon also from personal folders and open/save dialogs",
+		"registry": [
+			{
+				"path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FolderDescriptions\\{B4BFCC3A-DB2C-424C-B029-7FE99A87C641}\\PropertyBag",
+				"name": "ThisPCPolicy",
+				"type": "String",
+				"value": "Hide",
+				"originalValue": "Show"
+			},
+			{
+				"path": "HKLM:\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FolderDescriptions\\{B4BFCC3A-DB2C-424C-B029-7FE99A87C641}\\PropertyBag",
+				"name": "ThisPCPolicy",
+				"type": "String",
+				"value": "Hide",
+				"originalValue": "Show"
+			}
+		]
+	},
+	"ShowDocumentsInThisPC": {
+		"description": "Show Documents icon in This PC",
+		"registry": [
+			{
+				"path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{d3162b92-9365-467a-956b-92703aca08af}",
+				"name": "",
+				"type": "",
+				"value": "",
+				"originalValue": ""
+			},
+			{
+				"path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{A8CDFF1C-4878-43be-B5FD-F8091C1C60D0}",
+				"name": "",
+				"type": "",
+				"value": "",
+				"originalValue": ""
+			}
+		]
+	},
+	"ShowDocumentsInExplorer": {
+		"description": "Show Documents icon in Explorer namespace",
+		"registry": [
+			{
+				"path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FolderDescriptions\\{f42ee2d3-909f-4907-8871-4c22fc0bf756}\\PropertyBag",
+				"name": "ThisPCPolicy",
+				"type": "String",
+				"value": "Show",
+				"originalValue": "Hide"
+			},
+			{
+				"path": "HKLM:\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FolderDescriptions\\{f42ee2d3-909f-4907-8871-4c22fc0bf756}\\PropertyBag",
+				"name": "ThisPCPolicy",
+				"type": "String",
+				"value": "Show",
+				"originalValue": "Hide"
+			}
+		]
+	},
+	"ShowDownloadsInThisPC": {
+		"description": "Show Downloads icon in This PC",
+		"registry": [
+			{
+				"path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{088e3905-0323-4b02-9826-5d99428e115f}",
+				"name": "",
+				"type": "",
+				"value": "",
+				"originalValue": ""
+			},
+			{
+				"path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{374DE290-123F-4565-9164-39C4925E467B}",
+				"name": "",
+				"type": "",
+				"value": "",
+				"originalValue": ""
+			}
+		]
+	},
+	"ShowDownloadsInExplorer": {
+		"description": "Show Downloads icon in Explorer namespace",
+		"registry": [
+			{
+				"path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FolderDescriptions\\{7d83ee9b-2244-4e70-b1f5-5393042af1e4}\\PropertyBag",
+				"name": "ThisPCPolicy",
+				"type": "String",
+				"value": "Show",
+				"originalValue": "Hide"
+			},
+			{
+				"path": "HKLM:\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FolderDescriptions\\{7d83ee9b-2244-4e70-b1f5-5393042af1e4}\\PropertyBag",
+				"name": "ThisPCPolicy",
+				"type": "String",
+				"value": "Show",
+				"originalValue": "Hide"
+			}
+		]
+	},
+	"ShowMusicInThisPC": {
+		"description": "Showing Music icon in This PC",
+		"registry": [
+			{
+				"path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{3dfdf296-dbec-4fb4-81d1-6a3438bcf4de}",
+				"name": "",
+				"type": "",
+				"value": "",
+				"originalValue": ""
+			},
+			{
+				"path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{1CF1260C-4DD0-4ebb-811F-33C572699FDE}",
+				"name": "",
+				"type": "",
+				"value": "",
+				"originalValue": ""
+			}
+		]
+	},
+	"ShowMusicInExplorer": {
+		"description": "Showing Music icon in Explorer namespace",
+		"registry": [
+			{
+				"path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FolderDescriptions\\{a0c69a99-21c8-4671-8703-7934162fcf1d}\\PropertyBag",
+				"name": "ThisPCPolicy",
+				"type": "String",
+				"value": "Show",
+				"originalValue": "Hide"
+			},
+			{
+				"path": "HKLM:\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FolderDescriptions\\{a0c69a99-21c8-4671-8703-7934162fcf1d}\\PropertyBag",
+				"name": "ThisPCPolicy",
+				"type": "String",
+				"value": "Show",
+				"originalValue": "Hide"
+			}
+		]
+	},
+	"ShowPicturesInThisPC": {
+		"description": "Show Pictures icon in This PC",
+		"registry": [
+			{
+				"path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{24ad3ad4-a569-4530-98e1-ab02f9417aa8}",
+				"name": "",
+				"type": "",
+				"value": "",
+				"originalValue": ""
+			},
+			{
+				"path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{3ADD1653-EB32-4cb0-BBD7-DFA0ABB5ACCA}",
+				"name": "",
+				"type": "",
+				"value": "",
+				"originalValue": ""
+			}
+		]
+	},
+	"ShowPicturesInExplorer": {
+		"description": "Show Pictures icon in Explorer namespace",
+		"registry": [
+			{
+				"path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FolderDescriptions\\{0ddd015d-b06c-45d5-8c4c-f59713854639}\\PropertyBag",
+				"name": "ThisPCPolicy",
+				"type": "String",
+				"value": "Show",
+				"originalValue": "Hide"
+			},
+			{
+				"path": "HKLM:\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FolderDescriptions\\{0ddd015d-b06c-45d5-8c4c-f59713854639}\\PropertyBag",
+				"name": "ThisPCPolicy",
+				"type": "String",
+				"value": "Show",
+				"originalValue": "Hide"
+			}
+		]
+	},
+	"ShowVideosInThisPC": {
+		"description": "Show Videos icon in This PC",
+		"registry": [
+			{
+				"path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{f86fa3ab-70d2-4fc7-9c99-fcbf05467f3a}",
+				"name": "",
+				"type": "",
+				"value": "",
+				"originalValue": ""
+			},
+			{
+				"path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{A0953C92-50DC-43bf-BE83-3742FED03C9C}",
+				"name": "",
+				"type": "",
+				"value": "",
+				"originalValue": ""
+			}
+		]
+	},
+	"ShowVideosInExplorer": {
+		"description": "Show Pictures icon in Explorer namespace",
+		"registry": [
+			{
+				"path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FolderDescriptions\\{35286a68-3c57-41a1-bbb1-0eae73d76c95}\\PropertyBag",
+				"name": "ThisPCPolicy",
+				"type": "String",
+				"value": "Show",
+				"originalValue": "Hide"
+			},
+			{
+				"path": "HKLM:\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FolderDescriptions\\{35286a68-3c57-41a1-bbb1-0eae73d76c95}\\PropertyBag",
+				"name": "ThisPCPolicy",
+				"type": "String",
+				"value": "Show",
+				"originalValue": "Hide"
+			}
+		]
+	},
+	"Show3DObjectsInThisPC": {
+		"description": "Show 3D Objects icon in This PC",
+		"registry": [
+			{
+				"path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{0DB7E03F-FC29-4DC6-9020-FF41B59E513A}",
+				"name": "",
+				"type": "",
+				"value": "",
+				"originalValue": ""
+			}
+		]
+	},
+	"Hide3DObjectsFromExplorer": {
+		"description": "Hide 3D Objects icon from Explorer namespace - Hides the icon also from personal folders and open/save dialogs",
+		"registry": [
+			{
+				"path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FolderDescriptions\\{31C0DD25-9439-4F12-BF41-7FF4EDA38722}\\PropertyBag",
+				"name": "ThisPCPolicy",
+				"type": "String",
+				"value": "Hide",
+				"originalValue": ""
+			},
+			{
+				"path": "HKLM:\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FolderDescriptions\\{31C0DD25-9439-4F12-BF41-7FF4EDA38722}\\PropertyBag",
+				"name": "ThisPCPolicy",
+				"type": "String",
+				"value": "Hide",
+				"originalValue": ""
+			}
+		]
+	},
+	"DisableThumbnails": {
+		"description": "Disable thumbnails, show only file extension icons",
+		"registry": [
+			{
+				"path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+				"name": "IconsOnly",
+				"type": "DWord",
+				"value": "1",
+				"originalValue": "0"
+			}
+		]
+	},
+	"DisableThumbsDB": {
+		"description": "Disable creation of Thumbs.db thumbnail cache files",
+		"registry": [
+			{
+				"path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+				"name": "DisableThumbnailCache",
+				"type": "DWord",
+				"value": "1",
+				"originalValue": ""
+			},
+			{
+				"path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+				"name": "DisableThumbsDBOnNetworkFolders",
+				"type": "DWord",
+				"value": "1",
+				"originalValue": ""
+			}
+		]
+	},
+	"DisableAdobeFlash": {
+		"description": "Disable built-in Adobe Flash in IE and Edge",
+		"registry": [
+			{
+				"path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Internet Explorer",
+				"name": "DisableFlashInIE",
+				"type": "DWord",
+				"value": "1",
+				"originalValue": ""
+			},
+			{
+				"path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\MicrosoftEdge\\Addons",
+				"name": "FlashPlayerEnabled",
+				"type": "DWord",
+				"value": "0",
+				"originalValue": ""
+			}
+		]
+	},
+	"UninstallOneDrive": {
+		"description": "Uninstall OneDrive - Not applicable to Server",
+		"script": "uninstallOneDrive.ps1",
+		"scriptUndo": "uninstallOneDriveUndo.ps1"
+	},
+	"UninstallWindowsStore": {
+		"description": "Change default Explorer view to Quick Access",
+		"script": "uninstallWindowsStore.ps1",
+		"scriptUndo": "uninstallWindowsStoreUndo.ps1"
+	},
+	"UninstallMediaPlayer": {
+		"description": "Uninstall Windows Media Player",
+		"scriptInline": "Disable-WindowsOptionalFeature -Online -FeatureName \"WindowsMediaPlayer\" -NoRestart -WarningAction SilentlyContinue | Out-Null",
+		"scriptInlineUndo": "Enable-WindowsOptionalFeature -Online -FeatureName \"WindowsMediaPlayer\" -NoRestart -WarningAction SilentlyContinue | Out-Null"
+	},
+	"UninstallInternetExplorer": {
+		"description": "Uninstall Internet Explorer",
+		"scriptInline": "Disable-WindowsOptionalFeature -Online -FeatureName \"Internet-Explorer-Optional-$env:PROCESSOR_ARCHITECTURE\" -NoRestart -WarningAction SilentlyContinue | Out-Null",
+		"scriptInlineUndo": "Enable-WindowsOptionalFeature -Online -FeatureName \"Internet-Explorer-Optional-$env:PROCESSOR_ARCHITECTURE\" -NoRestart -WarningAction SilentlyContinue | Out-Null"
+	},
+	"UninstallWorkFolders": {
+		"description": "Uninstall Work Folders Client - Not applicable to Server",
+		"scriptInline": "Disable-WindowsOptionalFeature -Online -FeatureName \"WorkFolders-Client\" -NoRestart -WarningAction SilentlyContinue | Out-Null",
+		"scriptInlineUndo": "Enable-WindowsOptionalFeature -Online -FeatureName \"WorkFolders-Client\" -NoRestart -WarningAction SilentlyContinue | Out-Null"
+	},
+	"InstallLinuxSubsystem": {
+		"description": "Install Linux Subsystem - Applicable to 1607 or newer",
+		"descriptionUndo": "Uninstall Linux Subsystem - Applicable to 1607 or newer",
+		"script": "installLinuxSubsystem.ps1",
+		"scriptUndo": "installLinuxSubsystemUndo.ps1"
+	},
+	"InstallHyperV": {
+		"description": "Install Hyper-V - Not applicable to Home",
+		"descriptionUndo": "Uninstall Linux Subsystem - Applicable to 1607 or newer",
+		"script": "installHyperV.ps1",
+		"scriptUndo": "installHyperVUndo.ps1"
+	},
+	"UninstallPDFPrinter": {
+		"description": "Install Microsoft Print to PDF",
+		"scriptInline": "Enable-WindowsOptionalFeature -Online -FeatureName \"Printing-PrintToPDFServices-Features\" -NoRestart -WarningAction SilentlyContinue | Out-Null",
+		"scriptInlineUndo": "Disable-WindowsOptionalFeature -Online -FeatureName \"Printing-XPSServices-Features\" -NoRestart -WarningAction SilentlyContinue | Out-Null"
+	},
+	"RemoveFaxPrinter": {
+		"description": "Remove Default Fax Printer",
+		"scriptInline": "Remove-Printer -Name \"Fax\" -ErrorAction SilentlyContinue",
+		"scriptInlineUndo": "Add-Printer -Name \"Fax\" -DriverName \"Microsoft Shared Fax Driver\" -PortName \"SHRFAX:\" -ErrorAction SilentlyContinue"
+	},
+	"HideServerManagerOnLogin": {
+		"description": "Hide Server Manager after login",
+		"registry": [
+			{
+				"path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Server\\ServerManager",
+				"name": "DoNotOpenAtLogon",
+				"type": "DWord",
+				"value": "1",
+				"originalValue": ""
+			}
+		]
+	},
+	"DisableShutdownTracker": {
+		"description": "Disable Shutdown Event Tracker",
+		"registry": [
+			{
+				"path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows NT\\Reliability",
+				"name": "ShutdownReasonOn",
+				"type": "DWord",
+				"value": "0",
+				"originalValue": ""
+			}
+		]
+	},
+	"DisablePasswordPolicy": {
+		"description": "Disable password complexity and maximum age requirements",
+		"descriptionUndo": "Enable password complexity and maximum age requirements",
+		"script": "disablePasswordPolicy.ps1",
+		"scriptUndo": "disablePasswordPolicyUndo.ps1"
+	},
+	"DisableCtrlAltDelLogin": {
+		"description": "Disable Ctrl+Alt+Del requirement before login",
+		"registry": [
+			{
+				"path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System",
+				"name": "DisableCAD",
+				"type": "DWord",
+				"value": "1",
+				"originalValue": "0"
+			},
+		]
+	},
+	"DisableIEEnhancedSecurity": {
+		"description": "Disable Internet Explorer Enhanced Security Configuration (IE ESC)",
+		"registry": [
+			{
+				"path": "HKLM:\\SOFTWARE\\Microsoft\\Active Setup\\Installed Components\\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}",
+				"name": "IsInstalled",
+				"type": "DWord",
+				"value": "0",
+				"originalValue": "1"
+			},
+			{
+				"path": "HKLM:\\SOFTWARE\\Microsoft\\Active Setup\\Installed Components\\{A509B1A8-37EF-4b3f-8CFC-4F3A74704073}",
+				"name": "IsInstalled",
+				"type": "DWord",
+				"value": "0",
+				"originalValue": "1"
+			},
+		]
+	},
+	"EnableAudio": {
+		"description": "Stop and disable Home Groups services - Not applicable to 1803 and newer or Server",
+		"service": [
+			{
+				"Name": "Audiosrv",
+				"StartupType": "Automatic",
+				"OriginalType": "Manual"
+			}
+		]
+	},
+	"UnpinStartMenuTiles": {
+		"description": "Disable password complexity and maximum age requirements",
+		"descriptionUndo": "Enable password complexity and maximum age requirements",
+		"script": "unpinStartMenuTiles.ps1"
+	},
+	"UnpinTaskbarIcons": {
+		"description": "Unpin all Taskbar icons - Note: This function has no counterpart. You have to pin the icons back manually.",
+		"descriptionUndo": "Enable password complexity and maximum age requirements",
+		"script": "unpinTaskbarIcons.ps1"
+	},
+	"SetExplorerQuickAccess": {
+		"description": "Change default Explorer view to Quick Access",
+		"descriptionUndo": "Enable password complexity and maximum age requirements",
+		"scriptInline": "Remove-ItemProperty -Path \"HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\" -Name \"LaunchTo\" -ErrorAction SilentlyContinue",
+	},
+	"EnableDarkMode": {
+		"description": "Enable Dark Mode",
+		"descriptionUndo": "Disable Dark Mode",
+		"registry": [
+			{
+				"path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+				"name": "AppsUseLightTheme",
+				"type": "DWord",
+				"value": "0",
+				"originalValue": ""
+			}
+		]
+	},
+	"QOL": {
+		"description": "Enable Quality Of Life Tweaks",
+		"script": "qol.ps1"
+	},
+	"DetectnApplyMouseFIX": {
+		"description": "Detecting Windows Scale Layout Automatically and applying mouse fix according to it!",
+		"script": "detectnApplyMouseFIX.ps1"
+	},
+	"DisableHPET": {
+		"description": "Disable HPET (High Precision Event Timer)",
+		"script": "disableHPET.ps1"
+	},
+	"EnableGameMode": {
+		"description": "Enable Windows 10 Gaming Mode",
+		"script": "enableGameMode.ps1"
+	},
+	"EnableHAGS": {
+		"description": "Enable Hardware-accelerated GPU scheduling",
+		"descriptionUndo": "Disable Dark Mode",
+		"registry": [
+			{
+				"path": "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers",
+				"name": "HwSchMode",
+				"type": "DWord",
+				"value": "2",
+				"originalValue": ""
+			}
+		]
+	},
+	"EnableUltimatePower": {
+		"description": "Add Utimate Power Plan and activate it",
+		"script": "enableUltimatePower.ps1"
+	},
+	"DisableCoreParking": {
+		"description": "Disable Core Parking on current PowerPlan Ultimate Performance",
+		"script": "disableCoreParking.ps1"
+	},
+	"DisableDMA": {
+		"description": "Disable DMA memory protection and cores isolation (\"virtualization-based protection\").",
+		"script": "disableCoreParking.ps1"
+	},
+	"DisablePKM": {
+		"description": "Disable Process and Kernel Mitigations",
+		"script": "disablePKM.ps1"
+	},
+	"DisallowDIP": {
+		"description": "Disallow drivers to get paged into virtual memory",
+		"descriptionUndo": "Disable Dark Mode",
+		"registry": [
+			{
+				"path": "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Memory Management",
+				"name": "DisablePagingExecutive",
+				"type": "DWord",
+				"value": "1",
+				"originalValue": ""
+			}
+		]
+	},
+	"UseBigM": {
+		"description": "Use big system memory caching to improve microstuttering",
+		"descriptionUndo": "Disable Dark Mode",
+		"registry": [
+			{
+				"path": "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Memory Management",
+				"name": "LargeSystemCache",
+				"type": "DWord",
+				"value": "1",
+				"originalValue": ""
+			}
+		]
+	},
+	"ForceContiguousM": {
+		"description": "Use big system memory caching to improve microstuttering",
+		"descriptionUndo": "Disable Dark Mode",
+		"registry": [
+			{
+				"path": "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers",
+				"name": "DpiMapIommuContiguous",
+				"type": "DWord",
+				"value": "1",
+				"originalValue": ""
+			}
+		]
+	},
+	"StophighDPC": {
+		"description": "Tell Windows to stop tolerating high DPC/ISR latencies",
+		"script": "stophighDPC.ps1"
+	},
+	"DecreaseMKBuffer": {
+		"description": "Decrease mouse and keyboard buffer sizes",
+		"script": "DecreaseMKBuffer.ps1"
+	},
+	"NvidiaTweaks": {
+		"description": "Applying Nvidia Tweaks if GTX/RTX card detected!",
+		"script": "nvidiaTweaks.ps1"
+	},
+	"AMDGPUTweaks": {
+		"description": "Applying AMD Tweaks if detected!",
+		"script": "aMDGPUTweaks.ps1"
+	},
+	"NetworkOptimizations": {
+		"description": "Optimizing Network and applying Tweaks for no throttle and maximum speed!",
+		"script": "networkOptimizations.ps1"
+	},
+	"DisableNagle": {
+		"description": "Disable Nagle's Algorithm",
+		"script": "disableNagle.ps1"
+	},
+	"RemoveEdit3D": {
+		"description": "Remove Edit with 3D Paint",
+		"script": "removeEdit3D.ps1"
+	},
+	"FixURLext": {
+		"description": "Fix issue with games shortcut that created by games lunchers turned white!",
+		"script": "fixURLext.ps1"
+	},
+	"MSIMode": {
+		"description": "Enable Or Disable MSI Mode For Supported Cards. WARNING ENABLING MSI MODE MIGHT CRUSH YOUR SYSTEM! IF IT HAPPENS PLEASE RESTORE LAST WORKING SYSTEM RESTORE POINT AND DON'T ENABLE MSI MODE ON THIS SYSTEM AGAIN!",
+		"script": "msiMode.ps1"
+	},
+	"SlowUpdatesTweaks": {
+		"description": "Fix Windows Update to delay feature updates and only update at certain times",
+		"script": "slowUpdatesTweaks.ps1"
+	},
+	"DISGaming": {
+		"description": "Disabling unnessessary services for gaming",
+		"script": "disGaming.ps1"
+	},
+	"disableMSPPS": {
+		"description": "disable Microsoft Software Protection Platform Service",
+		"script": "disableMSPPS.ps1",
+		"scriptUndo": "disableMSPPSUndo.ps1"
+	},
+	"disableDefenderAndRelated": {
+		"description": "Disabling Microsoft Windows Defender and related Processes",
+		"script": "disableDefenderAndRelated.ps1",
+		"scriptUndo": "disableDefenderAndRelatedUndo.ps1"
+	},
+	"disableStore": {
+		"description": "disable Microsoft Store and WSAPPX Service",
+		"script": "disableStore.ps1",
+		"scriptUndo": "disableStoreUndo.ps1"
+	},
+	"EnableClipboardHistory": {
+		"description": "Enable Clipboard History",
+		"registry": [
+			{
+				"path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\System",
+				"name": "AllowClipboardHistory",
+				"type": "DWord",
+				"value": "1",
+				"originalValue": ""
+			}
+		]
+	},
+	"Win32PrioritySeparation": {
+		"description": "Setting Processor scheduling",
+		"registry": [
+			{
+				"path": "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\PriorityControl",
+				"name": "Win32PrioritySeparation",
+				"type": "DWord",
+				"value": "0x00000026",
+				"originalValue": ""
+			}
+		]
+	},
+	"DisableAERO": {
+		"description": "Disabling aero shake",
+		"registry": [
+			{
+				"path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+				"name": "DisallowShaking",
+				"type": "DWord",
+				"value": "0",
+				"originalValue": ""
+			}
+		]
+	},
+	"BSODdetails": {
+		"description": "Show BSOD details instead of the sad smiley",
+		"registry": [
+			{
+				"path": "HKLM:\\System\\CurrentControlSet\\Control\\CrashControl",
+				"name": "DisplayParameters",
+				"type": "DWord",
+				"value": "1",
+				"originalValue": ""
+			}
+		]
+	},
+	"Disablelivetiles": {
+		"description": "Disabling live tiles",
+		"registry": [
+			{
+				"path": "HKCU:\\SOFTWARE\\Policies\\Microsoft\\Windows\\CurrentVersion\\PushNotifications",
+				"name": "NoTileApplicationNotification",
+				"type": "DWord",
+				"value": "1",
+				"originalValue": ""
+			}
+		]
+	},
+	"wallpaperquality": {
+		"description": "Setting Wallpaper Quality to 100%",
+		"registry": [
+			{
+				"path": "HKCU:\\Control Panel\\Desktop",
+				"name": "JPEGImportQuality",
+				"type": "DWord",
+				"value": "100",
+				"originalValue": ""
+			}
+		]
+	},
+	"DisableShistory": {
+		"description": "Disabling search history",
+		"registry": [
+			{
+				"path": "HKCU:\\Software\\Policies\\Microsoft\\Windows\\Explorer",
+				"name": "DisableSearchBoxSuggestions",
+				"type": "DWord",
+				"value": "1",
+				"originalValue": ""
+			}
+		]
+	},
+	"Disableshortcutword": {
+		"description": "Disabling \"- Shortcut\" Word",
+		"registry": [
+			{
+				"path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer",
+				"name": "link",
+				"type": "Binary",
+				"value": "([byte[]](0,0,0,0))",
+				"originalValue": ""
+			}
+		]
+	},
+	"DisableMouseKKS": {
+		"description": "Disabling Mouse Keys Keyboard Shortcut",
+		"registry": [
+			{
+				"path": "HKCU:\\Control Panel\\Accessibility\\MouseKeys",
+				"name": "Flags",
+				"type": "String",
+				"value": "186",
+				"originalValue": ""
+			},
+			{
+				"path": "HKCU:\\Control Panel\\Accessibility\\MouseKeys",
+				"name": "MaximumSpeed",
+				"type": "String",
+				"value": "40",
+				"originalValue": ""
+			},
+			{
+				"path": "HKCU:\\Control Panel\\Accessibility\\MouseKeys",
+				"name": "TimeToMaximumSpeed",
+				"type": "String",
+				"value": "3000",
+				"originalValue": ""
+			}
+		]
+	},
+	"DisableTransparency": {
+		"description": "Disabling Windows Transparency",
+		"registry": [
+			{
+				"path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+				"name": "EnableTransparency",
+				"type": "DWord",
+				"value": "0",
+				"originalValue": ""
+			}
+		]
+	},
+	"TurnOffSafeSearch": {
+		"description": "Turning Off Safe Search",
+		"registry": [
+			{
+				"path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\SearchSettings",
+				"name": "SafeSearchMode",
+				"type": "DWord",
+				"value": "0",
+				"originalValue": ""
+			}
+		]
+	},
+	"DisableCloudSearch": {
+		"description": "Turning Off Safe Search",
+		"registry": [
+			{
+				"path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
+				"name": "AllowCloudSearch",
+				"type": "DWord",
+				"value": "0",
+				"originalValue": ""
+			}
+		]
+	},
+	"DisableDeviceHistory": {
+		"description": "Disabling Device History",
+		"registry": [
+			{
+				"path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Search",
+				"name": "DeviceHistoryEnabled",
+				"type": "DWord",
+				"value": "0",
+				"originalValue": ""
+			}
+		]
+	},
+	"SVCHostTweak": {
+		"description": "Add SVCHost Tweak",
+		"registry": [
+			{
+				"path": "HKLM:\\SYSTEM\\CurrentControlSet\\Control",
+				"name": "SvcHostSplitThresholdInKB",
+				"type": "DWord",
+				"value": "4194304",
+				"originalValue": ""
+			}
+		]
+	},
+	"GameOptimizationFIX": {
+		"description": "Game Optimizations Priority Tweaks -Type String -Value \"Deny\"",
+		"registry": [
+			{
+				"path": "HKLM:\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\\Tasks\\Games",
+				"name": "GPU Priority",
+				"type": "DWord",
+				"value": "8",
+				"originalValue": ""
+			},
+			{
+				"path": "HKLM:\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\\Tasks\\Games",
+				"name": "Priority",
+				"type": "DWord",
+				"value": "6",
+				"originalValue": ""
+			},
+			{
+				"path": "HKLM:\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\\Tasks\\Games",
+				"name": "Scheduling Category",
+				"type": "String",
+				"value": "High",
+				"originalValue": ""
+			},
+			{
+				"path": "HKLM:\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\\Tasks\\Games",
+				"name": "SFIO Priority",
+				"type": "String",
+				"value": "High",
+				"originalValue": ""
+			},
+			{
+				"path": "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\PriorityControl",
+				"name": "IRQ8Priority",
+				"type": "DWord",
+				"value": "1",
+				"originalValue": ""
+			}
+		]
+	},
+}
